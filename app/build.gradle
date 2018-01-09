@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.example.king.passworddemo"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //手势密码库 https://github.com/DreaminginCodeZH/PatternLock
+    implementation 'me.zhanghai.android.patternlock:library:2.1.2'
+    //指纹识别库  https://github.com/uccmawei/FingerprintIdentify
+    implementation 'com.wei.android.lib:fingerprintidentify:1.2.1'
+    //监听应用级别的暂停和恢复  //https://github.com/TakWolf/Android-Repause
+    implementation 'com.takwolf.android:repause:0.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
